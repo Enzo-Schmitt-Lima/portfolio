@@ -1,6 +1,9 @@
 export const personalInfo = {
   name: "Enzo Schmitt Lima",
   role: "Desenvolvedor de Sistemas / Desenvolvedor Full-Stack Web",
+  title: "Estudante de Desenvolvimento de Sistemas",
+  summary:
+    "Gosto de transformar problemas reais em soluções que funcionam: do levantamento de requisitos ao deploy, construindo aplicações web e mobile com TypeScript, React e Node.js. Busco um estágio para aprender com um time e entregar valor desde o primeiro dia.",
   location: "São Bernardo do Campo - SP",
   phone: "(11) 97487-2524",
   email: "enzo.schmitt03lima@gmail.com",
@@ -18,6 +21,7 @@ export const skillGroups = [
     folder: "linguagens-e-frameworks",
     skills: [
       "TypeScript",
+      "Python",
       "Node.js",
       "Express.js",
       "React.js",
@@ -34,7 +38,7 @@ export const skillGroups = [
   {
     title: "Ferramentas & Processos",
     folder: "ferramentas",
-    skills: ["Git/GitHub", "Figma", "Postman", "Insomnia", "Jest", "Clean Code"],
+    skills: ["Git/GitHub", "Power BI", "Figma", "Postman", "Insomnia", "Jest", "Clean Code"],
   },
   {
     title: "Idiomas",
@@ -122,12 +126,4 @@ export const projects = [
       "Prisma ORM",
     ],
   },
-];
-
-export const navLinks = [
-  { label: "README", href: "#sobre" },
-  { label: "Stack", href: "#stack" },
-  { label: "Trajetória", href: "#trajetoria" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
 ];

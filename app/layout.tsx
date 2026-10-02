@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Enzo Schmitt Lima | Desenvolvedor Full-Stack Web",
+  title: "Enzo Schmitt Lima | Estudante de Desenvolvimento de Sistemas",
   description:
     "Portfólio de Enzo Schmitt Lima, Desenvolvedor de Sistemas e Full-Stack Web especializado em TypeScript, Next.js, Node.js e React.",
 };
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-accent-purple selection:text-white">
+      <body className="flex min-h-full flex-col bg-neutral-950 text-neutral-200">
         {children}
       </body>
     </html>
