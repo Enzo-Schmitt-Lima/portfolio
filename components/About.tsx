@@ -1,43 +1,61 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { BookOpen, Pencil } from "lucide-react";
+import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { personalInfo } from "@/lib/resume";
+import { personalInfo, timeline } from "@/lib/resume";
 
-const infoItems = [
-  { icon: MapPin, label: personalInfo.location },
-  { icon: Phone, label: personalInfo.phone },
-  { icon: Mail, label: personalInfo.email },
-];
+const currentJob = timeline.find(
+  (entry) => entry.kind === "work" && entry.status === "open",
+);
+const currentStudy = timeline.find(
+  (entry) => entry.kind === "education" && entry.status === "open",
+);
 
 export default function About() {
   return (
-    <section id="sobre" className="mx-auto max-w-6xl px-6 py-24">
-      <SectionHeading eyebrow="Sobre mim" title="Quem é Enzo Schmitt Lima" />
+    <section id="sobre" className="mx-auto max-w-6xl px-6 py-20">
+      <SectionHeading command="cat README.md" title="Sobre mim" />
 
-      <div className="grid gap-10 md:grid-cols-5 md:items-center">
-        <div className="md:col-span-3">
-          <p className="text-base leading-relaxed text-muted sm:text-lg">
-            {personalInfo.about}
-          </p>
+      <Reveal className="reveal overflow-hidden rounded-md border border-border">
+        <div className="flex items-center justify-between border-b border-border bg-surface px-4 py-3">
+          <span className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <BookOpen size={16} className="text-muted" />
+            README.md
+          </span>
+          <Pencil size={14} className="text-muted" aria-hidden />
         </div>
 
-        <div className="md:col-span-2">
-          <div className="rounded-2xl border border-border bg-surface p-6">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gradient">
-              Contato
-            </h3>
-            <ul className="flex flex-col gap-4">
-              {infoItems.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-background text-accent-blue">
-                    <Icon size={16} />
-                  </span>
-                  <span className="text-sm text-foreground">{label}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="p-6 sm:p-8">
+          <h3 className="border-b border-border pb-2 text-2xl font-semibold text-foreground">
+            Olá! 👋 Eu sou o Enzo
+          </h3>
+          <p className="mt-4 leading-relaxed text-muted">{personalInfo.about}</p>
+
+          <ul className="mt-6 flex flex-col gap-2 text-sm text-foreground">
+            {currentJob && (
+              <li>
+                💼 Atualmente: <strong>{currentJob.title}</strong> na{" "}
+                {currentJob.org}
+              </li>
+            )}
+            {currentStudy && (
+              <li>
+                🎓 Cursando: <strong>{currentStudy.title}</strong> —{" "}
+                {currentStudy.org}
+              </li>
+            )}
+            <li>📍 {personalInfo.location}</li>
+            <li>
+              📫 Fale comigo:{" "}
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="text-accent-blue hover:underline"
+              >
+                {personalInfo.email}
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -15,7 +15,7 @@ export const personalInfo = {
 export const skillGroups = [
   {
     title: "Linguagens & Frameworks",
-    icon: "Code2",
+    folder: "linguagens-e-frameworks",
     skills: [
       "TypeScript",
       "Node.js",
@@ -28,35 +28,89 @@ export const skillGroups = [
   },
   {
     title: "Banco de Dados",
-    icon: "Database",
+    folder: "banco-de-dados",
     skills: ["MySQL", "MongoDB", "PostgreSQL", "Prisma ORM"],
   },
   {
     title: "Ferramentas & Processos",
-    icon: "Wrench",
+    folder: "ferramentas",
     skills: ["Git/GitHub", "Figma", "Postman", "Insomnia", "Jest", "Clean Code"],
   },
   {
     title: "Idiomas",
-    icon: "Languages",
+    folder: "idiomas",
     skills: ["Inglês — Avançado (Access International School, Yázigi)"],
   },
 ];
 
-export const experiences = [
+export type TimelineEntry = {
+  branch: string;
+  title: string;
+  org: string;
+  date: string;
+  kind: "work" | "education" | "course";
+  status: "open" | "merged";
+  description?: string;
+};
+
+// Mais recente primeiro, como um `git log`.
+export const timeline: TimelineEntry[] = [
   {
-    role: "Jovem Aprendiz Administrativo",
-    company: "Proeng Montagens e Manutenção Industrial",
-    period: "jan. 2026 – atual",
-    current: true,
+    branch: "feat/analise-desenvolvimento-sistemas",
+    title: "Superior em Análise e Desenvolvimento de Sistemas",
+    org: "SENAI Armando de Arruda Pereira",
+    date: "Cursando",
+    kind: "education",
+    status: "open",
+  },
+  {
+    branch: "feat/assistente-administrativo",
+    title: "Assistente Administrativo",
+    org: "SENAI Almirante Tamandaré",
+    date: "Cursando",
+    kind: "course",
+    status: "open",
+  },
+  {
+    branch: "work/proeng-jovem-aprendiz",
+    title: "Jovem Aprendiz Administrativo",
+    org: "Proeng Montagens e Manutenção Industrial",
+    date: "jan. 2026 – atual",
+    kind: "work",
+    status: "open",
     description:
       "Atuação no setor de TI, realizando suporte técnico e apoio aos processos administrativos, organizacionais e de TI, incluindo a manutenção de sistemas e suporte em rotinas de escritório.",
+  },
+  {
+    branch: "feat/power-bi",
+    title: "Curso de Power BI",
+    org: "SENAI Almirante Tamandaré",
+    date: "2026",
+    kind: "course",
+    status: "merged",
+  },
+  {
+    branch: "feat/tecnico-desenvolvimento-sistemas",
+    title: "Técnico em Desenvolvimento de Sistemas",
+    org: "SENAI Almirante Tamandaré",
+    date: "2025",
+    kind: "education",
+    status: "merged",
+  },
+  {
+    branch: "feat/ensino-medio",
+    title: "Ensino Médio Completo",
+    org: "SESI SP",
+    date: "2025",
+    kind: "education",
+    status: "merged",
   },
 ];
 
 export const projects = [
   {
     name: "App mobile para pizzaria",
+    language: "TypeScript",
     description:
       "Desenvolvido em React Native e TypeScript, com cadastro de produtos, carrinho de pedidos e back-end em Node.js/Express integrado a banco de dados PostgreSQL via Prisma ORM.",
     stack: [
@@ -70,39 +124,10 @@ export const projects = [
   },
 ];
 
-export const education = [
-  {
-    degree: "Superior em Análise e Desenvolvimento de Sistemas",
-    institution: "SENAI Armando de Arruda Pereira",
-    status: "Cursando",
-  },
-  {
-    degree: "Técnico em Desenvolvimento de Sistemas",
-    institution: "SENAI Almirante Tamandaré",
-    status: "2025",
-  },
-  {
-    degree: "Curso de Power BI",
-    institution: "SENAI Almirante Tamandaré",
-    status: "2026",
-  },
-  {
-    degree: "Assistente Administrativo",
-    institution: "SENAI Almirante Tamandaré",
-    status: "Cursando",
-  },
-  {
-    degree: "Ensino Médio Completo",
-    institution: "SESI SP",
-    status: "2025",
-  },
-];
-
 export const navLinks = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Habilidades", href: "#habilidades" },
-  { label: "Experiência", href: "#experiencia" },
+  { label: "README", href: "#sobre" },
+  { label: "Stack", href: "#stack" },
+  { label: "Trajetória", href: "#trajetoria" },
   { label: "Projetos", href: "#projetos" },
-  { label: "Educação", href: "#educacao" },
   { label: "Contato", href: "#contato" },
 ];
